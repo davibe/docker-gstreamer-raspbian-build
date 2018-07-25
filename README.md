@@ -25,3 +25,14 @@ So you can do
     bash build.sh
     # whatever
 
+The `build` dir will contain a `usr_local.tar` which you can transfer and decompress
+to your raspberry
+
+    scp build/usr_local.tar pi@raspberrypi.local:~
+    ssh pi@raspberrypi.local
+    sudo apt-get remove gstreamer-1.0 # remove raspbian version of gstreamer
+    cd /
+    tar -xvf /home/pi/usr_local.tar
+    export LD_LIBRARY_PATH=/usr/local/lib
+    gst-inspect-1.0 --version # enjoy
+
