@@ -1,8 +1,6 @@
 # modified from
 # https://raw.githubusercontent.com/cxphong/Build-gstreamer-Raspberry-Pi-3/master/gstreamer-build.sh
 
-[ ! -d src ] && mkdir src
-
 export LD_LIBRARY_PATH=/usr/local/lib/
 
 [ ! -d gstreamer ] && git clone git://anongit.freedesktop.org/git/gstreamer/gstreamer
@@ -65,5 +63,12 @@ cd gst-rtsp-server
 make -j4
 sudo make install
 cd ..
+
+[ ! -d rtsprelay ] && git clone https://github.com/jayridge/rtsprelay
+cd rtsprelay
+make -j4
+sudo make install
+cd ..
+
 
 tar -c /usr/local > usr_local.tar

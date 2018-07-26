@@ -80,7 +80,7 @@ RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c '\
     libmpeg2-4-dev libopencore-amrnb-dev libopencore-amrwb-dev \
     libsidplay1-dev libtwolame-dev libx264-dev libusb-1.0 \
     python-gi-dev yasm python3-dev libgirepository1.0-dev libvo-aacenc-dev \
-    '
+  '
 
 CMD chroot $SYSROOT $QEMU_PATH /bin/bash
 

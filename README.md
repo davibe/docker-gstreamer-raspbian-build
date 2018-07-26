@@ -10,7 +10,7 @@ Here is how to use it
 
     docker build -t raspbian-chroot .
 
-    docker run --rm -it -v $(pwd)/build:/sysroot/build raspi-chroot
+    docker run --rm -it -v $(pwd)/build:/sysroot/build raspbian-chroot
 
 This will open a bash terminal.
 This bash terminal lives inside the emulated raspberry chroot like this
