@@ -6,7 +6,7 @@ qemu-static-arm that runs in a raspbian chroot.
 This is way faster than full system emulation yet slower than real cross-compilation.
 It took 2 - 3 hrs on my macbook pro.
 
-If you just want to download prebuilt binaries skip to [Installing](#installing)
+*If you just want to download prebuilt binaries skip to [Installing](#installing)*
 
 ## Building
 
@@ -31,8 +31,9 @@ The build.sh script generates a new version of `build/usr_local.tar`.
 
 # Installing
 
-In order to install the prebuilt gstreamer you can transfer 
-and decompress `build/usr_local.tar` to your raspberry and then
+In order to install the prebuilt gstreamer you can transfer and decompress 
+[build/usr_local.tar](https://github.com/davibe/docker-gstreamer-raspbian-build/raw/master/build/usr_local.tar)
+to your raspberry and then
 
     scp build/usr_local.tar pi@raspberrypi.local:~
     ssh pi@raspberrypi.local
