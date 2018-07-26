@@ -1,6 +1,6 @@
 # Readme
 
-I created this Dockerfile to build latest git version of gstreamer and plugins my raspberry pi.
+I created this Dockerfile to build latest git version of gstreamer and plugins for my raspberry pi.
 In this case I am not using a real cross-compiler. I just run the entyre build inside
 qemu-static-arm that runs in a raspbian chroot. 
 This is way faster than full system emulation yet slower than real cross-compilation.
