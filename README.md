@@ -12,7 +12,7 @@ It took 1 - 2 hrs on my macbook pro.
 
     docker build -t raspbian-chroot .
 
-    docker run --rm -it -v $(pwd)/build:/sysroot/build raspbian-chroot
+    docker run --rm -it -v $(pwd)/build:/sysroot/build:delegated raspbian-chroot
 
 This will open a bash terminal.
 This bash terminal lives inside the emulated raspberry chroot like this
