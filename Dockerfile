@@ -82,5 +82,22 @@ RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c '\
     python-gi-dev yasm python3-dev libgirepository1.0-dev libvo-aacenc-dev \
   '
 
-CMD chroot $SYSROOT $QEMU_PATH /bin/bash
+# install tools that are specifically need to run gst-build
+RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c 'apt-get install -y --force-yes python3-pip'
+RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c 'git clone https://github.com/mesonbuild/meson.git && cd meson && pip3 install .'
+
+RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c ' \
+    git clone https://github.com/ninja-build/ninja.git && \
+    cd ninja && \
+    export CFLAGS="-D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE" && \
+    ./configure.py --bootstrap \
+  '
+
+# make gst-omx work ?
+RUN chroot $SYSROOT $QEMU_PATH /bin/sh -c ' \
+  apt-get install -y libomxil-bellagio-dev \
+  libavfilter-dev libavformat-dev libavcodec-dev libavdevice-dev libavresample-dev libavutil-dev \
+  '
+
+  CMD chroot $SYSROOT $QEMU_PATH /bin/bash
 
